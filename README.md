@@ -33,7 +33,7 @@ Hosted on **Cloudflare Pages** for fast global delivery and secure HTTPS.
 │   ├── icons/               # Favicon + Apple Touch Icons
 │   └── img/                 # (future) Images and photos
 └── README.md
-
+```
 Additional pages (e.g., `/about`, `/services`, `/visa`, `/contact`) will be added as the project grows.
 
 ---
