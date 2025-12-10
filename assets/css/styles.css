@@ -139,3 +139,113 @@ h1 {
         padding: 12px 12px;
     }
 }
+/* Cookie banner – subtle compact GRADO style */
+.cookie-banner {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  width: 90%;
+  max-width: 520px; /* was 640px */
+  background: rgba(255, 255, 255, 0.92); /* softer, slightly transparent */
+  color: #333;
+  padding: 10px 14px; /* reduced padding */
+  border-radius: 10px; /* smaller radius */
+  border-left: 4px solid #16a085; /* thinner brand accent */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* softer shadow */
+  z-index: 9999;
+  
+  font-size: 13px; /* smaller text */
+  line-height: 1.4;
+
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.cookie-banner.cookie-visible {
+  display: block;
+  pointer-events: auto;
+  animation: cookie-slide-fade 0.35s ease-out forwards; /* slightly faster */
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* smaller gap */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-content p {
+  margin: 0;
+}
+
+.cookie-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* tighter buttons */
+}
+
+.cookie-btn {
+  padding: 5px 12px; /* smaller buttons */
+  border-radius: 999px;
+  border: 1px solid #cfd6da;
+  background: #ffffffcf; /* translucent */
+  color: #1f2933;
+  font-size: 12px; /* smaller */
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.12s ease;
+}
+
+.cookie-btn.primary {
+  border-color: #16a085;
+  background: #16a085;
+  color: #fff;
+}
+
+.cookie-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.cookie-btn.primary:hover {
+  background: #138a73;
+  border-color: #138a73;
+}
+
+/* compact fade + slide animation */
+@keyframes cookie-slide-fade {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .cookie-banner {
+    bottom: 10px;
+    padding: 10px 12px;
+    max-width: 94%;
+  }
+
+  .cookie-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cookie-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
