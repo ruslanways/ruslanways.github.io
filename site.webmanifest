@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "GRADO Travel",
+    "short_name": "GRADO",
     "icons": [
         {
             "src": "/assets/icons/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#16a085",
     "background_color": "#ffffff",
     "display": "standalone"
 }
