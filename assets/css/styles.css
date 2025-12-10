@@ -249,3 +249,11 @@ h1 {
     justify-content: flex-start;
   }
 }
+
+.tiny-star {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  position: relative;
+  top: -2px;        /* keeps it perfectly aligned */
+  margin-right: 1px; /* was 6px → now closer */
+}
