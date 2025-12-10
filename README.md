@@ -23,6 +23,7 @@ Hosted on **Cloudflare Pages** for fast global delivery and secure HTTPS.
 ---
 
 ## 🧱 Project Structure
+```text
 /
 ├── index.html               # Main landing page
 ├── favicon.ico              # Root favicon (required for browsers)
@@ -53,39 +54,42 @@ No frameworks are used at this stage to keep the project lightweight and fast.
 To edit or extend the website:
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/ruslanways/ruslanways.github.io
+```bash
+git clone https://github.com/ruslanways/ruslanways.github.io
+```
 2.	Edit the HTML/CSS files locally.
 3.	Commit and push changes:
-   git add .
-   git commit -m "Update styles and layout"
-   git push
+```bash
+git add .
+git commit -m "Update styles and layout"
+git push
+```
 
 Cloudflare Pages automatically builds and deploys the site.
 
-📱 Icons & Manifest
+## 📱 Icons & Manifest
 
 Favicons and PWA icons are stored in:
-assets/icons/
+`assets/icons/`
 
 The repository includes:
-	•	favicon.ico
-	•	PNG favicons (16×16, 32×32)
-	•	Apple Touch icon
-	•	Android Chrome icons
-	•	site.webmanifest
+-	favicon.ico
+-	PNG favicons (16×16, 32×32)
+-	Apple Touch icon
+-	Android Chrome icons
+-	site.webmanifest
 
 These provide full support for browsers, iOS/Android devices, and “Add to Home Screen”.
 
-🌍 Contact
+## 🌍 Contact
 
-Email: agent@grado.lviv.ua
-Telegram: @ruslanways
-Instagram: @gradolviv
+- Email: agent@grado.lviv.ua
+- Telegram: @ruslanways
+- Instagram: @gradolviv
 
 Based in Lviv, Ukraine — working with travelers worldwide.
 
-📌 License
+## 📌 License
 
 This project is proprietary and part of the GRADO Travel brand.
 Feel free to browse the code, but reuse of content or branding is not allowed without permission.
