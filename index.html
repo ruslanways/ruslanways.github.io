@@ -39,14 +39,14 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="stylesheet" href="/assets/css/styles.css?v=18" />
+    <link rel="stylesheet" href="/assets/css/styles.css?v=31" />
   </head>
 
   <body>
     <main class="wrap">
       <div class="masthead">
         <header class="top-row">
-          <h1>GRADO Travel</h1>
+          <h1><a class="brand-link" href="/index.html">GRADO Travel</a></h1>
           <div class="social-links top-social-links" aria-label="Contact links">
             <a
               class="social-link"
@@ -85,7 +85,7 @@
             </a>
           </div>
         </header>
-        <p class="subtitle service-links" aria-label="Services">
+        <nav class="subtitle service-links" aria-label="Services">
           <span class="service-link">Individual trips</span>
           <span class="service-separator" aria-hidden="true">•</span>
           <span class="service-link">Flights</span>
@@ -94,8 +94,18 @@
           <span class="service-separator" aria-hidden="true">•</span>
           <span class="service-link">Itineraries</span>
           <span class="service-separator" aria-hidden="true">•</span>
-          <span class="service-link">Visas</span>
-        </p>
+          <details class="service-dropdown">
+            <summary class="service-link service-dropdown-trigger">Visas</summary>
+            <div class="service-dropdown-menu" aria-label="Visa countries">
+              <span class="service-dropdown-link">Canada</span>
+              <span class="service-dropdown-link">USA</span>
+              <span class="service-dropdown-link">Australia</span>
+              <span class="service-dropdown-link">UK</span>
+              <span class="service-dropdown-link">New Zealand</span>
+              <span class="service-dropdown-link">Others</span>
+            </div>
+          </details>
+        </nav>
       </div>
       <img
         class="hero-image"
@@ -170,6 +180,7 @@
       </div>
     </div>
 
+    <script src="/assets/js/service-dropdown.js"></script>
     <script src="/assets/js/cookie-consent.js"></script>
   </body>
 </html>
