@@ -6,7 +6,7 @@
 
 html,
 body {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -16,13 +16,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-y: auto;
     padding: 24px;
+    padding:
+      calc(24px + env(safe-area-inset-top))
+      calc(24px + env(safe-area-inset-right))
+      calc(24px + env(safe-area-inset-bottom))
+      calc(24px + env(safe-area-inset-left));
 }
 
 .wrap {
     max-width: 520px;
     width: 100%;
-    text-align: center;
+    text-align: left;
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 0 16px;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
 h1 {
@@ -33,10 +53,111 @@ h1 {
     color: #16a085;
 }
 
+.masthead {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.top-row h1 {
+    margin-bottom: 0;
+    text-align: left;
+}
+
 .subtitle {
     font-size: 0.98rem;
     color: #555;
     margin-bottom: 18px;
+}
+
+.service-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 4px 6px;
+    text-align: left;
+}
+
+.masthead .subtitle {
+    margin-bottom: 0;
+}
+
+.service-link {
+    color: #555;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 1px 8px;
+    text-decoration-line: underline;
+    text-decoration-color: rgba(22, 160, 133, 0.28);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease,
+      text-decoration-color 0.15s ease;
+}
+
+.service-link:hover {
+    color: #138a73;
+    background: #eaf7f3;
+    text-decoration-color: rgba(19, 138, 115, 0.58);
+}
+
+.service-separator {
+    color: #9aa0a6;
+    padding: 0 1px;
+}
+
+@media (max-width: 520px) {
+    .service-links {
+        display: block;
+        white-space: nowrap;
+        margin: 0 0 18px;
+        font-size: clamp(0.7rem, 2.8vw, 0.86rem);
+        letter-spacing: 0.015em;
+        line-height: 1.25;
+        text-align: left;
+    }
+
+    .service-link {
+        padding: 0;
+        color: #666;
+        text-decoration-color: rgba(22, 160, 133, 0.24);
+    }
+
+    .service-link:hover {
+        color: #666;
+        background: transparent;
+    }
+
+    .service-separator {
+        padding: 0 3px;
+        color: #a7adb3;
+    }
+
+    .masthead {
+        margin-bottom: 10px;
+        padding-top: max(6px, env(safe-area-inset-top));
+        padding-bottom: 7px;
+    }
+
+    .masthead .service-links {
+        margin: 0;
+    }
 }
 
 .text {
@@ -50,13 +171,13 @@ h1 {
 .divider {
     border: none;
     border-top: 1px solid #f2f2f2;
-    margin: 26px auto 10px;
-    width: 50%;
+    margin: 26px 0 10px;
+    width: 100%;
 }
 
 /* Visa box */
 .visa-box {
-    margin: 0 auto 26px;
+    margin: 0 0 26px;
     padding: 14px 16px;
     border-radius: 8px;
     border: 1px solid #f5f5f5;
@@ -77,66 +198,181 @@ h1 {
     line-height: 1.4;
 }
 
-.visa-link a:hover,
-.visa-photo a:hover {
-    text-decoration: underline;
+.accent-link {
+    color: #16a085;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 0 2px;
+    box-shadow: inset 0 -1px 0 rgba(22, 160, 133, 0.32);
+    transition:
+      color 0.15s ease,
+      background 0.15s ease,
+      box-shadow 0.15s ease;
+}
+
+.accent-link:hover {
+    color: #138a73;
+    background: #eaf7f3;
+    box-shadow: inset 0 -1px 0 rgba(19, 138, 115, 0.5);
+}
+
+.accent-link:focus-visible {
+    outline: 2px solid #16a085;
+    outline-offset: 2px;
 }
 
 /* Contact section */
-.contact-title {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: #999;
-    margin-bottom: 8px;
+.contact {
+    margin-top: 2px;
 }
 
-.contact-item {
-    font-size: 0.95rem;
-    margin-bottom: 6px;
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0 12px;
 }
 
-.contact-item a {
+.top-social-links {
+    margin: 0;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.social-link {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid #e4ecea;
+    background: #fff;
     color: #16a085;
     text-decoration: none;
+    transition:
+      transform 0.15s ease,
+      border-color 0.15s ease,
+      background 0.15s ease,
+      box-shadow 0.15s ease;
 }
 
-.contact-item a:hover {
-    text-decoration: underline;
+.social-link:hover {
+    transform: translateY(-1px);
+    border-color: #16a085;
+    background: #f4fbf9;
+    box-shadow: 0 6px 14px rgba(22, 160, 133, 0.16);
+}
+
+.social-link:focus-visible {
+    outline: 2px solid #16a085;
+    outline-offset: 2px;
+}
+
+.social-icon {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .location {
     font-size: 0.85rem;
     color: #888;
-    margin-top: 14px;
+}
+
+.copyright {
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    color: #a2a2a2;
+    margin-top: 10px;
 }
 
 /* Mobile tweaks */
 @media (max-width: 480px) {
     body {
+        align-items: flex-start;
         padding: 16px;
+        padding:
+          calc(16px + env(safe-area-inset-top))
+          calc(16px + env(safe-area-inset-right))
+          calc(16px + env(safe-area-inset-bottom))
+          calc(16px + env(safe-area-inset-left));
     }
 
     h1 {
         font-size: 1.3rem;
     }
 
+    .top-row {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .top-social-links {
+        gap: 6px;
+    }
+
+    .hero-image {
+        max-height: 200px;
+        margin-bottom: 14px;
+    }
+
     .subtitle,
     .text,
     .visa-link,
-    .visa-photo,
-    .contact-item {
+    .visa-photo {
         font-size: 0.9rem;
     }
 
+    .service-links {
+        font-size: clamp(0.68rem, 3.2vw, 0.82rem);
+    }
+
+    .masthead .service-links {
+        margin: 0;
+    }
+
+    .service-link {
+        padding: 0;
+    }
+
+    .social-link {
+        width: 30px;
+        height: 30px;
+    }
+
+    .social-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .location {
+        font-size: 0.82rem;
+        margin-top: 2px;
+    }
+
+    .copyright {
+        font-size: 0.72rem;
+    }
+
     .divider {
-        width: 70%;
-        margin: 22px auto 8px;
+        width: 100%;
+        margin: 22px 0 8px;
     }
 
     .visa-box {
         margin-bottom: 22px;
         padding: 12px 12px;
+    }
+}
+
+@media (max-height: 760px) {
+    body {
+        align-items: flex-start;
     }
 }
 /* Cookie banner – subtle compact GRADO style */
