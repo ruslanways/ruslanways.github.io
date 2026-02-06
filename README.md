@@ -18,7 +18,7 @@ The website is currently a simple one-page landing, but it will expand into a mu
 
 **https://grado.lviv.ua**
 
-Hosted on **Cloudflare Pages** for fast global delivery and secure HTTPS.
+Published via **GitHub Pages** (source: `main` branch, `/(root)`), with **Cloudflare** as DNS/proxy.
 
 ---
 
@@ -42,8 +42,8 @@ Additional pages (e.g., `/about`, `/services`, `/visa`, `/contact`) will be adde
 
 - **HTML5** — Clean, semantic markup  
 - **CSS3** — Custom responsive styling  
-- **Cloudflare Pages** — Hosting & global CDN  
-- **GitHub Pages** (development only)  
+- **GitHub Pages** — Static hosting and deployment from `main`  
+- **Cloudflare** — DNS, proxy, and HTTPS handling  
 
 No frameworks are used at this stage to keep the project lightweight and fast.
 
@@ -65,7 +65,13 @@ git commit -m "Update styles and layout"
 git push
 ```
 
-Cloudflare Pages automatically builds and deploys the site.
+GitHub Pages automatically deploys after pushes to `main`.
+
+## ⚡ Deployment Reminder
+
+- Deployment source: GitHub Pages -> `main` branch + `/(root)`  
+- Update flow: edit files -> `git add .` -> `git commit` -> `git push origin main`  
+- Cloudflare does not build this site; it serves/proxies `grado.lviv.ua` in front of GitHub Pages.
 
 ## 📱 Icons & Manifest
 
